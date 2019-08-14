@@ -1,6 +1,9 @@
 from django import forms
 
 
-class UserInputForm(forms.Form):
-    title = forms.CharField(max_length=50)
+class CodeSnippetForm(forms.Form):
+    code = forms.CharField(widget=forms.Textarea)
+
+
+class UploadFileForm(forms.Form):
     file = forms.FileField()

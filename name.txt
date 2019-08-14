@@ -1,0 +1,5 @@
+"1","MALE","James Barret John","2018/07/23","Ugandan"
+"2","MALE","Gladys Mpemba Zegezege","2018/07/23","Rwandan"
+"3","MALE","Lilian Mabula Charles","2018/07/23","South African"
+"4","MALE","Ferdinand Haba Mapunda","2018/07/23","Morrocan"
+"5","MALE","Andrew Minja John","1998/06/17","Kenyan"
