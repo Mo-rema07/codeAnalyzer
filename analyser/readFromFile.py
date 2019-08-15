@@ -1,4 +1,5 @@
 # Saves uploaded code in a temporary '.txt' file so that it not executable.
+import os
 
 
 def handle_uploaded_file(f):
@@ -10,4 +11,5 @@ def handle_uploaded_file(f):
     if file.mode == 'r':
         str_content = file.read()
     file.close()
+    os.remove('file.txt')
     return str_content
