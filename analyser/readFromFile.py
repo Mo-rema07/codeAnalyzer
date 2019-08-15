@@ -2,6 +2,7 @@
 import os
 
 
+# Reads content from the uploaded file, writes to local file, reads the content into memory and deletes the file.
 def handle_uploaded_file(f):
     str_content = ''
     temp_txt = 'temp.txt'
