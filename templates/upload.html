@@ -2,23 +2,52 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-    <div id = "holder">
-        {% if user.is_authenticated %}
-            Hi {{ user.username }}!
-            <p><a href="{% url 'logout' %}">logout</a></p>
-        {% else %}
-            <p>You are not logged in</p>
-            <a href="{% url 'login' %}">login</a>
-        {% endif %}
-        <form method="post" enctype="multipart/form-data" action= '/code_snippet/'>
-            {% csrf_token %}
-            {{ snippet_form.as_p }}
-            <button type="submit" class="mdc-button">Check Vulnerabilities</button>
-        </form>
-        <form method="post" enctype="multipart/form-data" action='/upload/'>
-            {% csrf_token %}
-            {{ upload_form.as_p }}
-            <button type="submit" class="mdc-button">Check Vulnerabilities</button>
-        </form>
-    </div>
+    <section>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-8 col-xl-6">
+                    <div class="row">
+                        <div class="col text-center">
+                            <h4>Enter a PHP code snippet below:</h4>
+                        </div>
+                    </div>
+                    <form method="post" enctype="multipart/form-data" action= '/code_snippet/'>
+                        {% csrf_token %}
+                        <div class="row align-items-center">
+                            <div class="col mt-4">
+                                <code class="prettyprint code">{{ snippet_form.code }}</code> <br/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <button type="submit" class="btn btn-primary mt-4">Check Vulnerabilities</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col text-center">
+                            <h4>Or upload a PHP code file:</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col text-center">
+                            <form method="post" enctype="multipart/form-data" action='/upload/'>
+                                {% csrf_token %}
+                                <div class="row align-items-center">
+                                    <div class="col mt-4">
+                                        {{ upload_form.as_p }}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col text-center">
+                                        <button type="submit" class="btn btn-primary mt-4">Check Vulnerabilities</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

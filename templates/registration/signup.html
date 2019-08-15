@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
-
-{% block title %}Login{% endblock %}
+{% block title %}Sign Up{% endblock %}
 
 {% block content %}
     <section>
@@ -9,7 +8,7 @@
                 <div class="col-12 col-md-8 col-lg-8 col-xl-6">
                     <div class="row">
                         <div class="col text-center">
-                            <h2>Login</h2>
+                            <h2>Register</h2>
                         </div>
                     </div>
                     <form method="post">
@@ -22,11 +21,17 @@
                         </div>
                         <div class="row align-items-center">
                             <div class="col mt-4">
-                                <label for="{{ form.password.id_for_label }}">Password:</label>
-                                {{ form.password }}
+                                <label for="{{ form.password1.id_for_label }}">Password:</label>
+                                {{ form.password1 }}
                             </div>
                         </div>
-                        <button class="btn btn-primary mt-4">Login</button>
+                        <div class="row align-items-center">
+                            <div class="col mt-4">
+                                <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
+                                {{ form.password2 }}
+                            </div>
+                        </div>
+                        <button class="btn btn-primary mt-4">Register</button>
                     </form>
                 </div>
             </div>

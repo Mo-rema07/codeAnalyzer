@@ -1,0 +1,13 @@
+main{
+    margin-top: 5vh;
+}
+
+.code textarea, #user_code{
+    border: 1px solid;
+    width: 40vw;
+    height: 40vh;
+}
+
+#report{
+    font-size: medium;
+}

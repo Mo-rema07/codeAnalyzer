@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
 
 from analyser.analyse import analyse
 from analyser.readFromFile import handle_uploaded_file
@@ -14,7 +14,7 @@ def code_snippet(request):
         if form.is_valid():
             code = form['code'].value()
             report = analyse(code)
-            return render(request, 'feedback.html', {'report': report})
+            return render(request, 'feedback.html', {'report': report, 'code': code})
     else:
         return HttpResponseRedirect('')
 
@@ -26,14 +26,13 @@ def upload_file(request):
         if form.is_valid():
             code = handle_uploaded_file(request.FILES['file'])
             report = analyse(code)
-            return render(request, 'feedback.html', {'report': report})
+            return render(request, 'feedback.html', {'report': report, 'code': code})
     else:
         return HttpResponseRedirect('')
 
 
 @login_required
 def home(request):
-
     snippet_form = CodeSnippetForm()
     upload_form = UploadFileForm()
     return render(request, 'upload.html', {
