@@ -4,12 +4,13 @@ import os
 
 def handle_uploaded_file(f):
     str_content = ''
-    with open('file.txt', 'wb+') as destination:
+    temp_txt = 'temp.txt'
+    with open(temp_txt, 'wb+') as destination:
         for chunk in f.chunks():
             destination.write(chunk)
-    file = open('file.txt', 'r')
+    file = open(temp_txt, 'r')
     if file.mode == 'r':
         str_content = file.read()
     file.close()
-    os.remove('file.txt')
+    os.remove('%s' % temp_txt)
     return str_content
